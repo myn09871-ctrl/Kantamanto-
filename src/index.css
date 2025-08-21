@@ -1,0 +1,173 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+  --primary: 24 100% 50%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 240 4.8% 95.9%;
+  --accent-foreground: 240 5.9% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --ring: 24 100% 50%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 24 100% 50%;
+  --primary-foreground: 240 10% 3.9%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --ring: 24 100% 50%;
+}
+
+* {
+  border-color: hsl(var(--border));
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Consistent font sizes - reduced overall */
+h1 { font-size: 1.875rem; font-weight: 600; line-height: 1.2; }
+h2 { font-size: 1.5rem; font-weight: 500; line-height: 1.3; }
+h3 { font-size: 1.25rem; font-weight: 500; line-height: 1.4; }
+h4 { font-size: 1.125rem; font-weight: 400; line-height: 1.5; }
+h5 { font-size: 1rem; font-weight: 400; line-height: 1.6; }
+h6 { font-size: 0.875rem; font-weight: 400; line-height: 1.6; }
+
+p { font-size: 0.875rem; line-height: 1.6; font-weight: 400; }
+small { font-size: 0.75rem; font-weight: 400; }
+
+button { font-size: 0.875rem; font-weight: 400; }
+input, textarea, select { font-size: 0.875rem; font-weight: 400; }
+
+/* Glassmorphism effects */
+.glassmorphic {
+  backdrop-filter: blur(16px) saturate(180%);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.glassmorphic-light {
+  backdrop-filter: blur(12px) saturate(150%);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Neumorphism effects */
+.neumorphic {
+  background: linear-gradient(145deg, hsl(var(--background)), hsl(var(--muted)));
+  box-shadow: 
+    8px 8px 16px rgba(0, 0, 0, 0.1),
+    -8px -8px 16px rgba(255, 255, 255, 0.1);
+  border: 1px solid hsl(var(--border));
+  transition: all 0.3s ease;
+}
+
+.neumorphic:hover {
+  box-shadow: 
+    12px 12px 24px rgba(0, 0, 0, 0.15),
+    -12px -12px 24px rgba(255, 255, 255, 0.15);
+}
+
+.neumorphic:active {
+  box-shadow: 
+    inset 4px 4px 8px rgba(0, 0, 0, 0.1),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.1);
+}
+
+/* Chat date separator */
+.chat-date-separator {
+  position: relative;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.chat-date-separator::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, hsl(var(--border)), transparent);
+}
+
+.chat-date-separator span {
+  background: hsl(var(--background));
+  padding: 0 0.75rem;
+  font-size: 0.75rem;
+  color: hsl(var(--muted-foreground));
+  font-weight: 400;
+}
+
+/* Logo styles */
+.logo-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: hsl(var(--primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: hsl(var(--primary-foreground));
+  transition: all 0.3s ease;
+}
+
+.logo-circle.scrolled {
+  width: 36px;
+  height: 36px;
+  font-size: 1.1rem;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: hsl(var(--primary));
+  margin-left: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.logo-text.scrolled {
+  font-size: 1.3rem;
+}
